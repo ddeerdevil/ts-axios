@@ -142,5 +142,10 @@
     "webpack-hot-middleware": "^2.24.3",
     "jasmine-ajax": "^4.0.0",
     "jasmine-core": "^3.4.0"
+  },
+  "dependencies": {
+    "@types/jquery": "^3.5.11",
+    "@types/lodash": "^4.14.178",
+    "jquery": "^3.6.0"
   }
 }
