@@ -6,7 +6,7 @@ import {
   ResolvedFn,
   RejectedFn
 } from '../types'
-import dispatchRequest from './dispatchRequest'
+import dispatchRequest, { transformURL } from './dispatchRequest'
 import InterceptorManager from './interceptorManager'
 import mergeConfig from './mergeConfig'
 
@@ -41,7 +41,6 @@ export default class Axios {
     } else {
       config = url
     }
-
     config = mergeConfig(this.defaults, config)
 
     const chain: PromiseChain<any>[] = [
@@ -95,6 +94,11 @@ export default class Axios {
 
   put<T = any>(url: string, data?: any, config?: AxiosRequestConfig): AxiosPromise<T> {
     return this._requestMethodWithData('put', url, data, config)
+  }
+
+  getUri(config: AxiosRequestConfig): string {
+    config = mergeConfig(this.defaults, config)
+    return transformURL(config)
   }
 
   _requestMethodWithoutData<T = any>(
