@@ -57,10 +57,6 @@ export default function mergeConfig(
 
   const config = Object.create(null)
 
-  for (let key in config2) {
-    mergeField(key)
-  }
-
   for (let key in config1) {
     if (config1[key] !== undefined) {
       mergeField(key)
