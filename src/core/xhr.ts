@@ -126,6 +126,7 @@ export default function xhr<T = any>(config: AxiosRequestConfig): AxiosPromise<T
     function processCancel(): void {
       if (cancelToken) {
         cancelToken.promise.then(reason => {
+          debugger
           request.abort()
           reject(reason)
         })

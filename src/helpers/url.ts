@@ -16,7 +16,7 @@ function encode(val: string): string {
     .replace(/%5D/gi, ']')
 }
 
-export function buildUrl(url: string, params: any, paramsSerializer?: (params: any) => string) {
+export function buildUrl(url: string, params?: any, paramsSerializer?: (params: any) => string) {
   if (!params) {
     return url
   }
@@ -91,7 +91,7 @@ function resolveURL(url: string): URLOrigin {
 }
 
 export function isAbsoluteURL(url: string): boolean {
-  return /(^[a-z][a-z\d\+\-\.]*:)\/\//.test(url)
+  return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url)
 }
 
 export function combineURL(baseURL: string, relativeURL?: string): string {

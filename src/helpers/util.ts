@@ -4,9 +4,9 @@ export function isDate(val: any): val is Date {
   return toString.call(val) === '[object Date]'
 }
 
-export function isObject(val: any): val is Object {
-  return val !== null && typeof val === 'object'
-}
+// export function isObject(val: any): val is Object {
+//   return val !== null && typeof val === 'object'
+// }
 
 export function isPlainObject(val: any): val is Object {
   return toString.call(val) === '[object Object]'
@@ -33,22 +33,22 @@ export function extend<T, U>(to: T, from: U): T & U {
  * @param from
  * @returns
  */
-export function extendV2<T, U>(to: T, from: U): T & U {
-  function deepCopy(instance: Record<string, any>) {
-    Object.getOwnPropertyNames(instance).forEach(key => {
-      ;(to as Record<string, any>)[key] = instance[key]
-    })
+// export function extendV2<T, U>(to: T, from: U): T & U {
+//   function deepCopy(instance: Record<string, any>) {
+//     Object.getOwnPropertyNames(instance).forEach(key => {
+//       ;(to as Record<string, any>)[key] = instance[key]
+//     })
 
-    const proto = Reflect.getPrototypeOf(instance)
-    if (proto !== null) {
-      deepCopy(proto)
-    }
-  }
+//     const proto = Reflect.getPrototypeOf(instance)
+//     if (proto !== null) {
+//       deepCopy(proto)
+//     }
+//   }
 
-  deepCopy(from)
+//   deepCopy(from)
 
-  return to as T & U
-}
+//   return to as T & U
+// }
 
 /**
  * 深拷贝多个对象为一个对象

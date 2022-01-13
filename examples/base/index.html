@@ -5,6 +5,19 @@
     <title>Base example</title>
   </head>
   <body>
+    <script>
+      let resolve;
+      let p = new Promise((rs) => {
+        resolve = rs;
+      })
+      p.then(res => {
+        console.log(123)
+      })
+      p.then(res => {
+        console.log(456)
+      })
+      resolve()
+      </script>
     <script src="/__build__/base.js"></script>
   </body>
 </html>
